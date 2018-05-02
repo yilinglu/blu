@@ -7,7 +7,7 @@ to the first argument passed to bind().
 bind() accepts multiple optional argumnets after the first argument, all of which will be prepended to 
 the list of arguments provided to the new bound function. 
 
-bind() is a mechanism of "hard binding" a function to its `this` keyword.
+bind() is a mechanism of "hard binding" an object to a function's `this` keyword.
 
 ### apply() & call()
 apply() and call() both invoke a function with `this` being explicitly bound
@@ -25,7 +25,7 @@ The difference is that after the first argument, call() accepts an optional argu
 It outputs [ 1, 3, 5, 7 ]
 
 
-## Explain JavaScript Closures - give an example to back up your explanation.
+## Explain JavaScript Closures - give an example to back up your explanation
 Closure is the ability of a function maintains access to its lexical scope when the function is executed 
 outside that lexical scope.
 
@@ -45,12 +45,25 @@ demo();
 
 ## What's the difference between a Merge and Rebase?
 
-## What TDD/BDD tools have you used?
-Unit testing with Jest, Mocha.
-End to end testing with Cypress.
-Assertion library: Chai
+(We will explain in the context of a feature branch and master branch)
 
-## If you've experimented with Monads, please tell us about what you did.
+Merge replays changes on a feature branch since it diverged from master on top of master,
+git then creates a new merge commit that has two parent commits: one is the latest on master, the other on feature branch.
+
+Rebase, however, can produce a linear cleaner history by not creating a merge commit that has two parent commits.
+
+Rebase pulls in all the latest changes from master, apply feature commits on top of them by changing the parent commit of feature
+branch commits.
+
+Rebase also affords us to do interactive rebase which merge cannot do.
+
+
+## What TDD/BDD tools have you used?
+1. Unit testing with Jest, Mocha.
+1. End to end testing with Cypress.
+1. Assertion library: Chai
+
+## If you've experimented with Monads, please tell us about what you did
 I implemented a simple Monad utility while refactoring an Node.js application that drives an electronic card reader. 
 
 The application had a ~600 line function with deeply nested if-else statement for
@@ -58,7 +71,7 @@ implementing card reader business logic. This function was hard to test, hard to
 
 I analyzed the busienss logics and workflow, implemented small and individual business logic with pure functions and used the Monad utility to compose multiple pure functions to build more complicated logics.
 
-By doing so, I made the application easy to understand, easy to test, friendly to changes, more robust (because Monads helped eliminate all intermediary states the previous monolithic function had).
+By doing so, I made the application easy to understand, easy to test, friendly to changes, more robust (because Monads helped eliminate all intermediary states the previous monolithic function had maintained).
 
 
 
