@@ -43,6 +43,10 @@ function demo() {
 demo();
 ```
 
+## What JavaScript Compilers have you used?
+
+Babel
+
 ## What's the difference between a Merge and Rebase?
 
 (We will explain in the context of a feature branch and master branch)
